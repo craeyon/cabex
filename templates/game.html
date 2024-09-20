@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Betting Game Results</h1>
+
+        {% if slots %}
+        <h2>Your Slots</h2>
+        <div>
+            {% for row in slots %}
+                {{ row }}<br>
+            {% endfor %}
+        </div>
+        <h2>You Won: ${{ winnings }}</h2>
+        <h3>Winning Lines: {{ winning_lines }}</h3>
+        <h3>Balance: ${{ balance }}</h3>
+        {% endif %}
+
+        <a href="/">Play Again</a>
+    </div>
+</body>
+</html>
